@@ -3,11 +3,25 @@
   "version": "0.0.1",
   "description": "Building blocks for Elastic queries, filters, and aggregations which can be re-used, combed, and nested.",
   "author": "Influence Health",
+  "author": {
+    "name": "Thomas Beutler",
+    "email": "tcbeutler@gmail.com",
+    "url": "https://github.com/tcbeutler"
+  },
   "contributors": [
     {
-      "name": "Thomas Beutler",
-      "email": "tcbeutler@gmail.com",
-      "url": "https://github.com/tcbeutler"
+      "name": "Influence Health",
+      "url": "https://github.com/medseek-engineering"
+    },
+    {
+      "name": "Nathan Stott",
+      "email": "nrstott@gmail.com",
+      "url": "https://github.com/nrstott"
+    },
+    {
+      "name": "Nathan Cooke",
+      "email": "nathancooke@gmail.com",
+      "url": "https://github.com/3choBoomer"
     }
   ],
   "repository": {
