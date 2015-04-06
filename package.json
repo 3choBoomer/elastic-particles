@@ -1,0 +1,45 @@
+{
+  "name": "elastic-particles",
+  "version": "0.0.1",
+  "description": "Building blocks for Elastic queries, filters, and aggregations which can be re-used, combed, and nested.",
+  "author": "Influence Health",
+  "contributors": [
+    {
+      "name": "Thomas Beutler",
+      "email": "tcbeutler@gmail.com",
+      "url": "https://github.com/tcbeutler"
+    }
+  ],
+  "main": "lib/particles.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "lodash": "~3.6.0"
+  },
+  "devDependencies": {
+    "mocha": "~2.2.1",
+    "assert": "~1.3.0",
+    "jshint": "~2.6.3"
+  },
+  "keywords": [
+    "elastic",
+    "elasticsearch",
+    "es",
+    "query",
+    "filter",
+    "builder",
+    "aggregation",
+    "aggs",
+    "node"
+  ],
+  "bugs": {
+    "url": "https://github.com/owner/project/issues",
+    "email": "project@hostname.com"
+  },
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "test": "mocha",
+    "lint": "jshint -c test/.jshintrc lib"
+  }
+}
