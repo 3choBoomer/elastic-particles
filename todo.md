@@ -3,3 +3,7 @@
 - clean up the client to do everything in raw or parsed mode
   - move away from using closure
 - clean up filters and add unit tests
+
+- rebuild client with parsed/raw modes, takes objects instead of string
+
+#H6 Move to TypeScript
