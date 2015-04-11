@@ -40,20 +40,6 @@ describe('dateHistogramAgg', function() {
     assert.throws(errFunc, Error);
   });
 
-  it('throws if no interval', function() {
-    var errFunc = function() {
-      new DateHistogramAgg('fieldName');
-    };
-    assert.throws(errFunc, Error);
-  });
-
-  it('throws if interval is invalid', function() {
-    var errFunc = function() {
-      new DateHistogramAgg('fieldName', 'lightyear'); //That's distance, dummy.
-    };
-    assert.throws(errFunc, Error);
-  });
-
   describe('getName', function() {
 
     it('returns set name', function() {

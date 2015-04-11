@@ -7,3 +7,6 @@
 - rebuild client with parsed/raw modes, takes objects instead of string
 
 #H6 Move to TypeScript
+
+
+#h5 create INTERNAL hidden property on all

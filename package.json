@@ -1,6 +1,6 @@
 {
   "name": "elastic-particles",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Building blocks for Elastic queries, filters, and aggregations which can be re-used, combed, and nested.",
   "author": {
     "name": "Thomas Beutler",
@@ -39,7 +39,9 @@
   "devDependencies": {
     "mocha": "~2.2.1",
     "assert": "~1.3.0",
-    "jshint": "~2.6.3"
+    "jshint": "~2.6.3",
+    "jsdoc": "~3.3.0-beta3",
+    "jsdoc-simple-template": "0.0.1"
   },
   "keywords": [
     "elastic",
@@ -58,6 +60,7 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "test": "mocha",
-    "lint": "jshint -c test/.jshintrc lib"
+    "lint": "jshint -c test/.jshintrc lib",
+    "docs": "node ./node_modules/jsdoc/jsdoc.js -c jsdoc-config.json"
   }
 }

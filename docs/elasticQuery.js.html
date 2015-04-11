@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: elasticQuery.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+
+    <h1 class="page-title">Source: elasticQuery.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+function ElasticQuery() {
+  this._filter = null;
+  this._query = undefined;
+
+  this._size = undefined;
+  this._source = undefined;
+}
+module.exports = ElasticQuery;
+
+ElasticQuery.prototype._ensureAggs = function ensureAggs() {
+  if (typeof this._aggs === 'undefined') {
+    this._aggs = {};
+  }
+};
+
+/**
+ * Sets the query filter to an instance of an Elastic Filter.]
+ * @param {Filter} filter instance of ./elasticsearch/filters filter.
+ */
+ElasticQuery.prototype.setQuery = function setQuery(query) {
+  this._query = query;
+  return this;
+};
+
+/**
+ * Sets the query filter to an instance of an Elastic Filter.]
+ * @param {Filter} filter instance of ./elasticsearch/filters filter.
+ */
+ElasticQuery.prototype.setFilter = function setFilter(filter) {
+  this._filter = filter;
+  return this;
+};
+
+ElasticQuery.prototype.setSize = function setSize(size) {
+  this._size = size;
+  return this;
+};
+
+/**
+ * Tells which source fields to include.
+ * @param {Array} includes Fields to include in source. Set to false instead of array to not pass _source.
+ */
+ElasticQuery.prototype.setIncludeFields = function setIncludeFields(includes) {
+  if (!this._source) {
+    this._source = {};
+  }
+  if (typeof includes === 'boolean')
+    this._source = includes;
+  else
+    this._source.include = includes;
+
+  return this;
+};
+
+ElasticQuery.prototype.setExcludeFields = function setExcludeFields(excludes) {
+  if (!this._source) {
+    this._source = {};
+  }
+
+  this._source.exclude = excludes;
+  return this;
+};
+
+/**
+ * Adds an Elasticsearch Aggregation object to the query.
+ * @param {Aggregation} aggObject Instance of Aggregation object.
+ * @param {string}      @optional aggName   Name of aggregation.
+ */
+ElasticQuery.prototype.addAggregation = function addAggregation(aggObject, aggName) {
+
+  aggName = aggName || aggObject.getName();
+
+  if (typeof aggName !== 'string') {
+    throw new Error('Aggregation must be named with a string.');
+  }
+
+  if (typeof this._aggs === 'undefined') {
+    this._aggs = {};
+  }
+
+  this._aggs[aggName] = aggObject;
+
+  return this;
+};
+
+ElasticQuery.prototype.serialize = function serializeQuery() {
+  var q = {};
+
+  if (this._size) {
+    q.size = this._size;
+  }
+  if (this._aggs) {
+    q.aggs = this._aggs;
+  }
+
+
+  // TODO: Implement filtered query.
+  // Currently creates a filtered query if a filter is set.
+  if (this._filter) {
+    q.query = { 'filtered': { 'filter': this._filter }};
+  }
+
+  if (this._query &amp;&amp; this._filter) {
+    q.query.filtered.query = this._query;
+  } else if (this._query) {
+    q.query = this._query;
+  }
+
+  if (this._source || typeof this._source === 'boolean') {
+    q._source = this._source;
+  }
+
+  //TODO: Better serialization (without unnecessary whitespace?)
+  return JSON.stringify(q, null, 4);
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aggregation.html">Aggregation</a></li><li><a href="AndFilter.html">AndFilter</a></li><li><a href="BoolFilter.html">BoolFilter</a></li><li><a href="BoolQuery.html">BoolQuery</a></li><li><a href="CardinalityAgg.html">CardinalityAgg</a></li><li><a href="DateHistogramAgg.html">DateHistogramAgg</a></li><li><a href="ElemMatchFilter.html">ElemMatchFilter</a></li><li><a href="Filter.html">Filter</a></li><li><a href="FilteredAgg.html">FilteredAgg</a></li><li><a href="GeoBoundingBoxFilter.html">GeoBoundingBoxFilter</a></li><li><a href="GeoDistanceAgg.html">GeoDistanceAgg</a></li><li><a href="GeoDistanceFilter.html">GeoDistanceFilter</a></li><li><a href="MatchQuery.html">MatchQuery</a></li><li><a href="MaxAgg.html">MaxAgg</a></li><li><a href="MissingFilter.html">MissingFilter</a></li><li><a href="MultiMatchQuery.html">MultiMatchQuery</a></li><li><a href="NestedAgg.html">NestedAgg</a></li><li><a href="NestedFilter.html">NestedFilter</a></li><li><a href="OrFilter.html">OrFilter</a></li><li><a href="RangeAgg.html">RangeAgg</a></li><li><a href="RangeFilter.html">RangeFilter</a></li><li><a href="ScriptedMetricAgg.html">ScriptedMetricAgg</a></li><li><a href="TermFilter.html">TermFilter</a></li><li><a href="TermsAgg.html">TermsAgg</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createNested">createNested</a></li><li><a href="global.html#createNonEnumerableProperty">createNonEnumerableProperty</a></li><li><a href="global.html#extractField">extractField</a></li><li><a href="global.html#getPath">getPath</a></li><li><a href="global.html#merge">merge</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta3</a> on Fri Apr 10 2015 20:22:12 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
