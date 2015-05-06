@@ -5,14 +5,14 @@ var assert = require('assert');
 
 describe('Particles', function() {
   
-  it('exposes 23 things', function() {
+  it('exposes 25 things', function() {
     var counter = 0;
     for (var property in particles) {
       if (particles.hasOwnProperty(property)) {
         counter++;
       }
     }
-    assert.equal(counter, 23);
+    assert.equal(counter, 25);
   });
   
   it('exposes ElasticQuery', function() {
@@ -29,6 +29,14 @@ describe('Particles', function() {
   
   it('exposes MatchQuery', function() {
     assert.notEqual(particles.MatchQuery, undefined);
+  });
+
+  it('exposes TermQuery', function() {
+    assert.notEqual(particles.TermQuery, undefined);
+  });
+
+  it('exposes RangeQuery', function() {
+    assert.notEqual(particles.RangeQuery, undefined);
   });
   
   it('exposes AndFilter', function() {

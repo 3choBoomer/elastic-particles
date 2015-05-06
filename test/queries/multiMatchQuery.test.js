@@ -68,4 +68,18 @@ describe('multiMatchQuery', function() {
     assert.deepEqual(expected, query);
   })
 
+  it('#setBoost chainable is boost setter', function() {
+    var query = new MultiMatchQuery('john smith')
+      .setBoost("1")
+      .setBoost(2.5);
+    var expected = {
+      multi_match: {
+        query: 'john smith',
+        fields: [],
+        boost: 2.5
+      }
+    };
+    assert.deepEqual(expected, query);
+  });
+
 });

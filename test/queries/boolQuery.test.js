@@ -135,5 +135,11 @@ describe('boolQuery', function() {
     assert.deepEqual(expected, query);
   });
 
+  it('#setBoost works/chained', function() {
+    var query = new BoolQuery().setBoost(5);
+    var expected = { bool: { boost: 5}};
+    assert.deepEqual(query, expected);
+  });
+
 
 });
