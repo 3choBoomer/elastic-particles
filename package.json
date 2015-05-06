@@ -1,6 +1,6 @@
 {
   "name": "elastic-particles",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Building blocks for Elastic queries, filters, and aggregations which can be re-used, combed, and nested.",
   "author": {
     "name": "Thomas Beutler",
@@ -31,8 +31,7 @@
   "files": [
     "lib"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "mocha": "~2.2.1",
     "assert": "~1.3.0",
