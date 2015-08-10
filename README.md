@@ -28,6 +28,7 @@
 - [TermFilter](http://jharri34.github.io/elastic-particles/TermFilter.html)
 - [TermQuery](http://jharri34.github.io/elastic-particles/TermQuery.html)
 - [TermsAgg](http://jharri34.github.io/elastic-particles/TermsAgg.html)
+
 ##Global
 - [createNested](http://jharri34.github.io/elastic-particles/global.html#createNested)
 - [createNonEnumerableProperty](http://jharri34.github.io/elastic-particles/global.html#createNonEnumerableProperty)
