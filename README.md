@@ -1,8 +1,8 @@
-#H1 Elastic Particles
+# Elastic Particles
 ##Building blocks for Elastic queries, filters, and aggregations which can be re-used, combed, and nested.
 ###documentation: http://jharri34.github.io/elastic-particles/
 
-- [Aggregation(http://jharri34.github.io/elastic-particles/Aggregation.html) 
+- [Aggregation](http://jharri34.github.io/elastic-particles/Aggregation.html) 
 - [AndFilter](http://jharri34.github.io/elastic-particles/AndFilter.html) 
 - [BoolFilter](http://jharri34.github.io/elastic-particles/BoolFilter.html) 
 - [BoolQuery](http://jharri34.github.io/elastic-particles/BoolQuery.html)
