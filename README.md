@@ -1,5 +1,5 @@
 # Elastic Particles
-##Building blocks for Elastic queries, filters, and aggregations which can be re-used, combed, and nested.
+##Building blocks for Elastic queries, filters, and aggregations which can be re-used, combined, and nested.
 ###documentation: http://jharri34.github.io/elastic-particles/
 
 - [Aggregation](http://jharri34.github.io/elastic-particles/Aggregation.html) 
