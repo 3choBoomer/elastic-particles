@@ -1,6 +1,6 @@
 {
   "name": "elastic-particles",
-  "version": "0.0.10",
+  "version": "2.2.0",
   "description": "Building blocks for Elastic queries, filters, and aggregations which can be re-used, combed, and nested.",
   "author": {
     "name": "Thomas Beutler",
@@ -25,21 +25,21 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/medseek-engineering/elastic-particles.git"
+    "url": "https://github.com/3choboomer/elastic-particles.git"
   },
   "main": "lib/particles.js",
   "files": [
     "lib"
   ],
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": "~4.6.1"
   },
   "devDependencies": {
     "mocha": "~2.2.1",
     "assert": "~1.3.0",
     "jshint": "~2.6.3",
-    "jsdoc": "~3.3.0-beta3",
-    "jsdoc-simple-template": "0.0.1"
+    "jsdoc-to-markdown": "~1.3.3",
+    "sinon": "~1.10.3"
   },
   "keywords": [
     "elastic",
@@ -53,12 +53,12 @@
     "node"
   ],
   "bugs": {
-    "url": "https://github.com/medseek-engineering/elastic-particles/issues"
+    "url": "https://github.com/3choboomer/elastic-particles/issues"
   },
   "license": "BSD-2-Clause",
   "scripts": {
     "test": "mocha",
     "lint": "jshint -c test/.jshintrc lib",
-    "docs": "node ./node_modules/jsdoc/jsdoc.js -c jsdoc-config.json"
+    "docs": "jsdoc2md --global-index-format grouped ./lib/elasticQuery.js > elasticQuery.md && jsdoc2md --global-index-format grouped ./lib/aggregations/*.js > aggregations.md && jsdoc2md --global-index-format grouped ./lib/filters/*.js > filters.md && jsdoc2md --global-index-format grouped ./lib/queries/*.js > queries.md"
   }
 }
