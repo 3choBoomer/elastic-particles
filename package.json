@@ -1,6 +1,6 @@
 {
   "name": "elastic-particles",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Building blocks for Elastic queries, filters, and aggregations which can be re-used, combed, and nested.",
   "author": {
     "name": "Thomas Beutler",
