@@ -31,8 +31,8 @@ describe('scriptedMetricAgg', function() {
     assert.throws(errFunc, Error);
   });
 
-  it('throws if no init_script', function() {
-    scripts.init_script = undefined;
+  it('throws if no map_script', function() {
+    scripts.map_script = undefined;
     var errFunc = function() {
       new ScriptedMetricAgg(scripts);
     };
