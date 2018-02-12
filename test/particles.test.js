@@ -5,14 +5,14 @@ var assert = require('assert');
 
 describe('Particles', function() {
   
-  it('exposes 26 things', function() {
+  it('exposes 27 things', function() {
     var counter = 0;
     for (var property in particles) {
       if (particles.hasOwnProperty(property)) {
         counter++;
       }
     }
-    assert.equal(counter, 26);
+    assert.equal(counter, 27);
   });
   
   it('exposes ElasticQuery', function() {
