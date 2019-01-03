@@ -34,7 +34,7 @@
         </h2>
         
             <div class="class-description"><p>Elastic metrics aggregation that calculates an approximate count of distinct values for a field.</p>
-<p><a href="http://www.elastic.co/guide/en/elasticsearch/reference/1.x/search-aggregations-metrics-cardinality-aggregation.html">link</a></p></div>
+<p><a href="http://%3Ca%20href=%22http://www.elastic.co/guide/en/elasticsearch/reference/1.x/search-aggregations-metrics-cardinality-aggregation.html">link</a>">www.elastic.co/guide/en/elasticsearch/reference/1.x/search-aggregations-metrics-cardinality-aggregation.html|link}</a></p></div>
         
     
 </header>
@@ -48,7 +48,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="CardinalityAgg"><span class="type-signature"></span>new CardinalityAgg<span class="signature">(field)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="CardinalityAgg"><span class="type-signature"></span>new CardinalityAgg<span class="signature">(field, respectPostFilter<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -75,7 +75,11 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -100,10 +104,61 @@
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last"><p>Name of field to aggregate on.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>respectPostFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>flag to respect any post_filters by applying the filter to the aggregation. Defaults to false.</p></td>
         </tr>
 
     
@@ -144,7 +199,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aggregations_cardinalityAgg.js.html">aggregations/cardinalityAgg.js</a>, <a href="aggregations_cardinalityAgg.js.html#line11">line 11</a>
+        <a href="aggregations_cardinalityAgg.js.html">aggregations/cardinalityAgg.js</a>, <a href="aggregations_cardinalityAgg.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -204,6 +259,185 @@
 
     
 
+    <h4 class="name" id="addAggregation"><span class="type-signature"></span>addAggregation<span class="signature">(aggObject, aggName<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Adds an Elasticsearch Aggregation object to the aggregation. Used to do aggregation on multiple items.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aggObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Aggregation.html">Aggregation</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Instance of Aggregation object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>aggName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Name of aggregation - optional.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Aggregation.html#addAggregation">Aggregation#addAggregation</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="aggregations_aggregation.js.html">aggregations/aggregation.js</a>, <a href="aggregations_aggregation.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="getName"><span class="type-signature"></span>getName<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
@@ -211,8 +445,7 @@
 
 
 <div class="description">
-    <p>Get the name of the aggregation object.
-Defaults to '{{field}}Cardinality'</p>
+    <p>Get the name of the aggregation object.<br>Defaults to '{{field}}Cardinality'</p>
 </div>
 
 
@@ -261,7 +494,7 @@ Defaults to '{{field}}Cardinality'</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aggregations_cardinalityAgg.js.html">aggregations/cardinalityAgg.js</a>, <a href="aggregations_cardinalityAgg.js.html#line27">line 27</a>
+        <a href="aggregations_cardinalityAgg.js.html">aggregations/cardinalityAgg.js</a>, <a href="aggregations_cardinalityAgg.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -321,9 +554,7 @@ Defaults to '{{field}}Cardinality'</p>
 
 
 <div class="description">
-    <p>Attach a name to the aggregation object. Can be used when attaching the aggregation to a query.
-Convenience method to allow responsibility of the name to be given to the creator of the aggregation object.
-Can be accessed directly but won't show up during serialization.</p>
+    <p>Attach a name to the aggregation object. Can be used when attaching the aggregation to a query.<br>Convenience method to allow responsibility of the name to be given to the creator of the aggregation object.<br>Can be accessed directly but won't show up during serialization.</p>
 </div>
 
 
@@ -421,7 +652,7 @@ Can be accessed directly but won't show up during serialization.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aggregations_aggregation.js.html">aggregations/aggregation.js</a>, <a href="aggregations_aggregation.js.html#line34">line 34</a>
+        <a href="aggregations_aggregation.js.html">aggregations/aggregation.js</a>, <a href="aggregations_aggregation.js.html#line53">line 53</a>
     </li></ul></dd>
     
 
@@ -463,13 +694,13 @@ Can be accessed directly but won't show up during serialization.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aggregation.html">Aggregation</a></li><li><a href="AndFilter.html">AndFilter</a></li><li><a href="BoolFilter.html">BoolFilter</a></li><li><a href="BoolQuery.html">BoolQuery</a></li><li><a href="CardinalityAgg.html">CardinalityAgg</a></li><li><a href="DateHistogramAgg.html">DateHistogramAgg</a></li><li><a href="ElemMatchFilter.html">ElemMatchFilter</a></li><li><a href="Filter.html">Filter</a></li><li><a href="FilteredAgg.html">FilteredAgg</a></li><li><a href="GeoBoundingBoxFilter.html">GeoBoundingBoxFilter</a></li><li><a href="GeoDistanceAgg.html">GeoDistanceAgg</a></li><li><a href="GeoDistanceFilter.html">GeoDistanceFilter</a></li><li><a href="MatchQuery.html">MatchQuery</a></li><li><a href="MaxAgg.html">MaxAgg</a></li><li><a href="MissingFilter.html">MissingFilter</a></li><li><a href="MultiMatchQuery.html">MultiMatchQuery</a></li><li><a href="NestedAgg.html">NestedAgg</a></li><li><a href="NestedFilter.html">NestedFilter</a></li><li><a href="OrFilter.html">OrFilter</a></li><li><a href="RangeAgg.html">RangeAgg</a></li><li><a href="RangeFilter.html">RangeFilter</a></li><li><a href="ScriptedMetricAgg.html">ScriptedMetricAgg</a></li><li><a href="TermFilter.html">TermFilter</a></li><li><a href="TermsAgg.html">TermsAgg</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createNested">createNested</a></li><li><a href="global.html#createNonEnumerableProperty">createNonEnumerableProperty</a></li><li><a href="global.html#extractField">extractField</a></li><li><a href="global.html#getPath">getPath</a></li><li><a href="global.html#merge">merge</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aggregation.html">Aggregation</a></li><li><a href="BoolFilter.html">BoolFilter</a></li><li><a href="BoolQuery.html">BoolQuery</a></li><li><a href="CardinalityAgg.html">CardinalityAgg</a></li><li><a href="DateHistogramAgg.html">DateHistogramAgg</a></li><li><a href="ElasticQuery.html">ElasticQuery</a></li><li><a href="ElemMatchFilter.html">ElemMatchFilter</a></li><li><a href="ExistsQuery.html">ExistsQuery</a></li><li><a href="Filter.html">Filter</a></li><li><a href="FilteredAgg.html">FilteredAgg</a></li><li><a href="GeoBoundingBoxFilter.html">GeoBoundingBoxFilter</a></li><li><a href="GeoDistanceAgg.html">GeoDistanceAgg</a></li><li><a href="GeoDistanceFilter.html">GeoDistanceFilter</a></li><li><a href="MatchQuery.html">MatchQuery</a></li><li><a href="MaxAgg.html">MaxAgg</a></li><li><a href="MissingFilter.html">MissingFilter</a></li><li><a href="MultiMatchQuery.html">MultiMatchQuery</a></li><li><a href="NestedAgg.html">NestedAgg</a></li><li><a href="NestedFilter.html">NestedFilter</a></li><li><a href="RangeAgg.html">RangeAgg</a></li><li><a href="RangeFilter.html">RangeFilter</a></li><li><a href="RangeQuery.html">RangeQuery</a></li><li><a href="ScriptedMetricAgg.html">ScriptedMetricAgg</a></li><li><a href="TermFilter.html">TermFilter</a></li><li><a href="TermQuery.html">TermQuery</a></li><li><a href="TermsAgg.html">TermsAgg</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createNested">createNested</a></li><li><a href="global.html#createNonEnumerableProperty">createNonEnumerableProperty</a></li><li><a href="global.html#extractField">extractField</a></li><li><a href="global.html#getPath">getPath</a></li><li><a href="global.html#merge">merge</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta3</a> on Mon Apr 13 2015 14:37:30 GMT-0500 (Central Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jan 03 2019 11:40:22 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>

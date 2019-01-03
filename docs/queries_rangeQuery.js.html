@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: util.js</title>
+    <title>JSDoc: Source: queries/rangeQuery.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -18,7 +18,7 @@
 <div id="main">
 
 
-    <h1 class="page-title">Source: util.js</h1>
+    <h1 class="page-title">Source: queries/rangeQuery.js</h1>
 
     
 
@@ -31,43 +31,70 @@
 var _ = require('lodash');
 
 /**
- * Assign property as non-enumerable property - won't serialize/iterate but can be accessed.
- * Use this to set attributes while maintaining valid elastic fields. 
- * @param {object}   scope Object to set the property on. Usually 'this';
- * @param {string}   prop  Property to set as non enumerable.
- * @param {Object} value Sets the property to this value.
- */
-function createNonEnumerableProperty(scope, prop, value) {
-  Object.defineProperty(scope, prop, {
-    enumerable: false,
-    writable: true,
-    value: value
-  });
+ * @class Elastic Range query.
+ * @param {string}  field  Field to range against.
+ */       
+function RangeQuery(field) {
+  if (!field) {
+    throw new Error('Range query requires a field.');
+  }
+
+  this.range = {};
+  this.range[field] = {};
 }
 
 /**
- * Merges two objects, concatenating matching arrays instead of overwriting them.
+ * Set less than/ equal to.
+ * @param  {any} value
  */
-function merge(obj1, obj2) {
-  return _.merge(obj1, obj2, function(a, b) {
-    return _.isArray(a) ? a.concat(b) : undefined;
-  });
-}
+RangeQuery.prototype.lte = function lte(value) {
+  var field = _.keys(this.range)[0];
+  this.range[field].lte = value;
+  return this;
+};
 
-function parseAggResponse(response, aggName, propertyToReturn) {
-  if (response.aggregations[aggName]){
-    if (response.aggregations[aggName][aggName]){
-      return response.aggregations[aggName][aggName][propertyToReturn];
-    }
-    return response.aggregations[aggName][propertyToReturn];
-  }
-}
+/**
+ * Set greater than/ equal to.
+ * @param  {any} value
+ */
+RangeQuery.prototype.gte = function gte(value) {
+  var field = _.keys(this.range)[0];
+  this.range[field].gte = value;
+  return this;
+};
 
-module.exports = {
-  createNonEnumerableProperty: createNonEnumerableProperty,
-  merge: merge,
-  parseAggResponse: parseAggResponse
-};</code></pre>
+/**
+ * Set less than.
+ * @param  {any} value
+ */
+RangeQuery.prototype.lt = function lt(value) {
+  var field = _.keys(this.range)[0];
+  this.range[field].lt = value;
+  return this;
+};
+
+/**
+ * Set greater than.
+ * @param  {any} value
+ */
+RangeQuery.prototype.gt = function gt(value) {
+  var field = _.keys(this.range)[0];
+  this.range[field].gt = value;
+  return this;
+};
+
+/**
+ * Set query boost.
+ * @param {number} boostFactor Number, string representation
+ *                             of number, or undefined to unset.
+ */
+RangeQuery.prototype.setBoost = function setBoost(boostFactor) {
+  var field = _.keys(this.range)[0];
+  this.range[field].boost = boostFactor;
+  return this;
+};
+
+module.exports = RangeQuery;</code></pre>
         </article>
     </section>
 

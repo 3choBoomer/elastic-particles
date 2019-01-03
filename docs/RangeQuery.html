@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ScriptedMetricAgg</title>
+    <title>JSDoc: Class: RangeQuery</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -18,7 +18,7 @@
 <div id="main">
 
 
-    <h1 class="page-title">Class: ScriptedMetricAgg</h1>
+    <h1 class="page-title">Class: RangeQuery</h1>
 
     
 
@@ -30,11 +30,10 @@
 <header>
     
         <h2>
-        ScriptedMetricAgg
+        RangeQuery
         </h2>
         
-            <div class="class-description"><p>Elastic metrics aggregation that executes map-reduce style scripts.</p>
-<p><a href="http://%3Ca%20href=%22http://www.elastic.co/guide/en/elasticsearch/reference/1.x/search-aggregations-metrics-scripted-metric-aggregation.html">link</a>">www.elastic.co/guide/en/elasticsearch/reference/1.x/search-aggregations-metrics-scripted-metric-aggregation.html|link}</a></p></div>
+            <div class="class-description"><p>Elastic Range query.</p></div>
         
     
 </header>
@@ -48,7 +47,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="ScriptedMetricAgg"><span class="type-signature"></span>new ScriptedMetricAgg<span class="signature">(scripts, respectPostFilter<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="RangeQuery"><span class="type-signature"></span>new RangeQuery<span class="signature">(field)</span><span class="type-signature"></span></h4>
 
     
 
@@ -75,11 +74,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -91,75 +86,23 @@
 
         <tr>
             
-                <td class="name"><code>scripts</code></td>
+                <td class="name"><code>field</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last"><p>Scripts object containing map-reduce logic.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>respectPostFilter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-
-            <td class="description last"><p>flag to respect any post_filters by applying the filter to the aggregation. Defaults to false.</p>
-<p> { 'init_script': 'script',  'map_script':'script', 'combine_script':'script', 'reduce_script':'script' }</p></td>
+            <td class="description last"><p>Field to range against.</p></td>
         </tr>
 
     
@@ -200,7 +143,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aggregations_scriptedMetricAgg.js.html">aggregations/scriptedMetricAgg.js</a>, <a href="aggregations_scriptedMetricAgg.js.html#line14">line 14</a>
+        <a href="queries_rangeQuery.js.html">queries/rangeQuery.js</a>, <a href="queries_rangeQuery.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -230,17 +173,6 @@
     </div>
 
     
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li><a href="Aggregation.html">Aggregation</a></li>
-    </ul>
-
-
-    
 
     
 
@@ -260,302 +192,14 @@
 
     
 
-    <h4 class="name" id="addAggregation"><span class="type-signature"></span>addAggregation<span class="signature">(aggObject, aggName<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="gt"><span class="type-signature"></span>gt<span class="signature">(value)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Adds an Elasticsearch Aggregation object to the aggregation. Used to do aggregation on multiple items.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>aggObject</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Aggregation.html">Aggregation</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Instance of Aggregation object.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>aggName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Name of aggregation - optional.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Aggregation.html#addAggregation">Aggregation#addAggregation</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aggregations_aggregation.js.html">aggregations/aggregation.js</a>, <a href="aggregations_aggregation.js.html#line35">line 35</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="getName"><span class="type-signature"></span>getName<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Get the name of the aggregation object.<br>Returns undefined if not set.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Aggregation.html#getName">Aggregation#getName</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aggregations_aggregation.js.html">aggregations/aggregation.js</a>, <a href="aggregations_aggregation.js.html#line63">line 63</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Name of aggregation.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="setName"><span class="type-signature"></span>setName<span class="signature">(name)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Attach a name to the aggregation object. Can be used when attaching the aggregation to a query.<br>Convenience method to allow responsibility of the name to be given to the creator of the aggregation object.<br>Can be accessed directly but won't show up during serialization.</p>
+    <p>Set greater than.</p>
 </div>
 
 
@@ -591,13 +235,13 @@
 
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">any</span>
 
 
             
@@ -607,7 +251,7 @@
 
             
 
-            <td class="description last"><p>Name of aggregation.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -625,11 +269,6 @@
 
     
 
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Aggregation.html#setName">Aggregation#setName</a>
-    </li></ul></dd>
     
 
     
@@ -653,7 +292,531 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aggregations_aggregation.js.html">aggregations/aggregation.js</a>, <a href="aggregations_aggregation.js.html#line53">line 53</a>
+        <a href="queries_rangeQuery.js.html">queries/rangeQuery.js</a>, <a href="queries_rangeQuery.js.html#line51">line 51</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="gte"><span class="type-signature"></span>gte<span class="signature">(value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Set greater than/ equal to.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="queries_rangeQuery.js.html">queries/rangeQuery.js</a>, <a href="queries_rangeQuery.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="lt"><span class="type-signature"></span>lt<span class="signature">(value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Set less than.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="queries_rangeQuery.js.html">queries/rangeQuery.js</a>, <a href="queries_rangeQuery.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="lte"><span class="type-signature"></span>lte<span class="signature">(value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Set less than/ equal to.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="queries_rangeQuery.js.html">queries/rangeQuery.js</a>, <a href="queries_rangeQuery.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setBoost"><span class="type-signature"></span>setBoost<span class="signature">(boostFactor)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Set query boost.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>boostFactor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number, string representation<br>                            of number, or undefined to unset.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="queries_rangeQuery.js.html">queries/rangeQuery.js</a>, <a href="queries_rangeQuery.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
