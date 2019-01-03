@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: util.js</title>
+    <title>JSDoc: Source: queries/existsQuery.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -18,7 +18,7 @@
 <div id="main">
 
 
-    <h1 class="page-title">Source: util.js</h1>
+    <h1 class="page-title">Source: queries/existsQuery.js</h1>
 
     
 
@@ -28,46 +28,21 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
-var _ = require('lodash');
 
 /**
- * Assign property as non-enumerable property - won't serialize/iterate but can be accessed.
- * Use this to set attributes while maintaining valid elastic fields. 
- * @param {object}   scope Object to set the property on. Usually 'this';
- * @param {string}   prop  Property to set as non enumerable.
- * @param {Object} value Sets the property to this value.
+ * @class Elastic Exists query
+ * @param {string}  fieldName  Name of Field that must exist.
  */
-function createNonEnumerableProperty(scope, prop, value) {
-  Object.defineProperty(scope, prop, {
-    enumerable: false,
-    writable: true,
-    value: value
-  });
-}
-
-/**
- * Merges two objects, concatenating matching arrays instead of overwriting them.
- */
-function merge(obj1, obj2) {
-  return _.merge(obj1, obj2, function(a, b) {
-    return _.isArray(a) ? a.concat(b) : undefined;
-  });
-}
-
-function parseAggResponse(response, aggName, propertyToReturn) {
-  if (response.aggregations[aggName]){
-    if (response.aggregations[aggName][aggName]){
-      return response.aggregations[aggName][aggName][propertyToReturn];
-    }
-    return response.aggregations[aggName][propertyToReturn];
+function ExistsQuery(fieldName) {
+  if (!fieldName) {
+    throw new Error('Exists query requires a fieldName.');
   }
+
+  this.exists = {};
+  this.exists.field = fieldName;
 }
 
-module.exports = {
-  createNonEnumerableProperty: createNonEnumerableProperty,
-  merge: merge,
-  parseAggResponse: parseAggResponse
-};</code></pre>
+module.exports = ExistsQuery;</code></pre>
         </article>
     </section>
 

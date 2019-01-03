@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: GeoDistanceFilter</title>
+    <title>JSDoc: Class: TermQuery</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -18,7 +18,7 @@
 <div id="main">
 
 
-    <h1 class="page-title">Class: GeoDistanceFilter</h1>
+    <h1 class="page-title">Class: TermQuery</h1>
 
     
 
@@ -30,10 +30,10 @@
 <header>
     
         <h2>
-        GeoDistanceFilter
+        TermQuery
         </h2>
         
-            <div class="class-description"><p>ElasticSearch geo distance filter.</p></div>
+            <div class="class-description"><p>Elastic Term query for not analyzed fields.</p></div>
         
     
 </header>
@@ -47,7 +47,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="GeoDistanceFilter"><span class="type-signature"></span>new GeoDistanceFilter<span class="signature">(distanceValue, distanceUnit, geoJsonArry, termPath, cache<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="TermQuery"><span class="type-signature"></span>new TermQuery<span class="signature">(field, query)</span><span class="type-signature"></span></h4>
 
     
 
@@ -74,8 +74,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -88,38 +86,7 @@
 
         <tr>
             
-                <td class="name"><code>distanceValue</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Distance scalar.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>distanceUnit</code></td>
+                <td class="name"><code>field</code></td>
             
 
             <td class="type">
@@ -132,56 +99,17 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>Distance unit: See bit.ly/1yjZaiy</p></td>
+            <td class="description last"><p>Field to match against.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>geoJsonArry</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;number></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>[lon, lat] to match GeoJson spec.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>termPath</code></td>
+                <td class="name"><code>query</code></td>
             
 
             <td class="type">
@@ -194,51 +122,10 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>document path to term containing location.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>cache</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">bool</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Determine whether to cache the filter. Defaults to true.</p></td>
+            <td class="description last"><p>Query to match against.</p></td>
         </tr>
 
     
@@ -279,7 +166,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="filters_geoDistanceFilter.js.html">filters/geoDistanceFilter.js</a>, <a href="filters_geoDistanceFilter.js.html#line13">line 13</a>
+        <a href="queries_termQuery.js.html">queries/termQuery.js</a>, <a href="queries_termQuery.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -307,17 +194,6 @@
 
     
     </div>
-
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li><a href="Filter.html">Filter</a></li>
-    </ul>
-
 
     
 

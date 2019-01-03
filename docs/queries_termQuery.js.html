@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: util.js</title>
+    <title>JSDoc: Source: queries/termQuery.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -18,7 +18,7 @@
 <div id="main">
 
 
-    <h1 class="page-title">Source: util.js</h1>
+    <h1 class="page-title">Source: queries/termQuery.js</h1>
 
     
 
@@ -28,46 +28,22 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
-var _ = require('lodash');
 
 /**
- * Assign property as non-enumerable property - won't serialize/iterate but can be accessed.
- * Use this to set attributes while maintaining valid elastic fields. 
- * @param {object}   scope Object to set the property on. Usually 'this';
- * @param {string}   prop  Property to set as non enumerable.
- * @param {Object} value Sets the property to this value.
- */
-function createNonEnumerableProperty(scope, prop, value) {
-  Object.defineProperty(scope, prop, {
-    enumerable: false,
-    writable: true,
-    value: value
-  });
-}
-
-/**
- * Merges two objects, concatenating matching arrays instead of overwriting them.
- */
-function merge(obj1, obj2) {
-  return _.merge(obj1, obj2, function(a, b) {
-    return _.isArray(a) ? a.concat(b) : undefined;
-  });
-}
-
-function parseAggResponse(response, aggName, propertyToReturn) {
-  if (response.aggregations[aggName]){
-    if (response.aggregations[aggName][aggName]){
-      return response.aggregations[aggName][aggName][propertyToReturn];
-    }
-    return response.aggregations[aggName][propertyToReturn];
+ * @class Elastic Term query for not analyzed fields.
+ * @param {string}  field  Field to match against.
+ * @param {string}  query  Query to match against.
+ */       
+function TermQuery(field, query) {
+  if (!field) {
+    throw new Error('Term query requires a field.');
   }
+
+  this.term = {};
+  this.term[field] = query;
 }
 
-module.exports = {
-  createNonEnumerableProperty: createNonEnumerableProperty,
-  merge: merge,
-  parseAggResponse: parseAggResponse
-};</code></pre>
+module.exports = TermQuery;</code></pre>
         </article>
     </section>
 

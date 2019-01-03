@@ -32,14 +32,14 @@ var Aggregation = require('./aggregation');
 var util = require('../util');
 /**
  * @class Elastic Filtered Aggregation.
- * 
+ *
  * {@link http://www.elastic.co/guide/en/elasticsearch/reference/1.x/search-aggregations-bucket-filter-aggregation.html|link}
  * @augments {Aggregation}
  * Top level object will contain an 'aggs' and 'filter'.
- * @param {Aggregation} innerAgg        Aggregation object to be filtered.
- * @param {Filter|obj}  innerFilter     Filter object to apply to the innerAgg.
- * @param {string}      innerAggname    innerAgg name. Defaults to filteredAggName.
- * 
+ * @param {Aggregation}     innerAgg        Aggregation object to be filtered.
+ * @param {Filter|Object}   innerFilter     Filter object to apply to the innerAgg.
+ * @param {string}          [innerAggName]    innerAgg name. Defaults to filteredAggName.
+ *
  * @todo: Inherit from Aggregation using node util when prototype funcs needed.
  */
 function FilteredAgg(innerAgg, innerFilter, innerAggName) {
@@ -63,6 +63,7 @@ function FilteredAgg(innerAgg, innerFilter, innerAggName) {
   this.filter = innerFilter;
   util.createNonEnumerableProperty(this, '_root', innerAgg._root);
   util.createNonEnumerableProperty(this, '_innerAgg', innerAgg);
+
 }
 
 FilteredAgg.prototype = Object.create(Aggregation.prototype);
@@ -76,7 +77,8 @@ FilteredAgg.prototype.getName = function getFilteredName() {
   return this._name || this._innerAgg.getName();
 };
 
-module.exports = FilteredAgg;</code></pre>
+module.exports = FilteredAgg;
+</code></pre>
         </article>
     </section>
 
@@ -86,13 +88,13 @@ module.exports = FilteredAgg;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aggregation.html">Aggregation</a></li><li><a href="AndFilter.html">AndFilter</a></li><li><a href="BoolFilter.html">BoolFilter</a></li><li><a href="BoolQuery.html">BoolQuery</a></li><li><a href="CardinalityAgg.html">CardinalityAgg</a></li><li><a href="DateHistogramAgg.html">DateHistogramAgg</a></li><li><a href="ElemMatchFilter.html">ElemMatchFilter</a></li><li><a href="Filter.html">Filter</a></li><li><a href="FilteredAgg.html">FilteredAgg</a></li><li><a href="GeoBoundingBoxFilter.html">GeoBoundingBoxFilter</a></li><li><a href="GeoDistanceAgg.html">GeoDistanceAgg</a></li><li><a href="GeoDistanceFilter.html">GeoDistanceFilter</a></li><li><a href="MatchQuery.html">MatchQuery</a></li><li><a href="MaxAgg.html">MaxAgg</a></li><li><a href="MissingFilter.html">MissingFilter</a></li><li><a href="MultiMatchQuery.html">MultiMatchQuery</a></li><li><a href="NestedAgg.html">NestedAgg</a></li><li><a href="NestedFilter.html">NestedFilter</a></li><li><a href="OrFilter.html">OrFilter</a></li><li><a href="RangeAgg.html">RangeAgg</a></li><li><a href="RangeFilter.html">RangeFilter</a></li><li><a href="ScriptedMetricAgg.html">ScriptedMetricAgg</a></li><li><a href="TermFilter.html">TermFilter</a></li><li><a href="TermsAgg.html">TermsAgg</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createNested">createNested</a></li><li><a href="global.html#createNonEnumerableProperty">createNonEnumerableProperty</a></li><li><a href="global.html#extractField">extractField</a></li><li><a href="global.html#getPath">getPath</a></li><li><a href="global.html#merge">merge</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aggregation.html">Aggregation</a></li><li><a href="BoolFilter.html">BoolFilter</a></li><li><a href="BoolQuery.html">BoolQuery</a></li><li><a href="CardinalityAgg.html">CardinalityAgg</a></li><li><a href="DateHistogramAgg.html">DateHistogramAgg</a></li><li><a href="ElasticQuery.html">ElasticQuery</a></li><li><a href="ElemMatchFilter.html">ElemMatchFilter</a></li><li><a href="ExistsQuery.html">ExistsQuery</a></li><li><a href="Filter.html">Filter</a></li><li><a href="FilteredAgg.html">FilteredAgg</a></li><li><a href="GeoBoundingBoxFilter.html">GeoBoundingBoxFilter</a></li><li><a href="GeoDistanceAgg.html">GeoDistanceAgg</a></li><li><a href="GeoDistanceFilter.html">GeoDistanceFilter</a></li><li><a href="MatchQuery.html">MatchQuery</a></li><li><a href="MaxAgg.html">MaxAgg</a></li><li><a href="MissingFilter.html">MissingFilter</a></li><li><a href="MultiMatchQuery.html">MultiMatchQuery</a></li><li><a href="NestedAgg.html">NestedAgg</a></li><li><a href="NestedFilter.html">NestedFilter</a></li><li><a href="RangeAgg.html">RangeAgg</a></li><li><a href="RangeFilter.html">RangeFilter</a></li><li><a href="RangeQuery.html">RangeQuery</a></li><li><a href="ScriptedMetricAgg.html">ScriptedMetricAgg</a></li><li><a href="TermFilter.html">TermFilter</a></li><li><a href="TermQuery.html">TermQuery</a></li><li><a href="TermsAgg.html">TermsAgg</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createNested">createNested</a></li><li><a href="global.html#createNonEnumerableProperty">createNonEnumerableProperty</a></li><li><a href="global.html#extractField">extractField</a></li><li><a href="global.html#getPath">getPath</a></li><li><a href="global.html#merge">merge</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta3</a> on Mon Apr 13 2015 14:37:30 GMT-0500 (Central Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jan 03 2019 11:40:22 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
